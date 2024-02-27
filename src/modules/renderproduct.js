@@ -4,7 +4,6 @@ import { delDuplicate } from "./delduplicate"
 export const renderProduct = (data) => {
     const bodyCatalogPage = document.querySelector('.page_block')
     const arrProduct = delDuplicate(data)
-
     bodyCatalogPage.innerHTML = ''
 
     arrProduct.forEach((item) => {

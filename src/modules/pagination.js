@@ -6,9 +6,12 @@ export const paginationFunc = () => {
     const counterPage = document.querySelector('.pagination_number')
 
     let count = 1
+    paginationBlock.style.display = 'flex'
 
     const prevPage = () => {
        --count
+
+       paginationBlock.style.display = 'none'
 
         if(count < 1){
          count = 1
@@ -20,6 +23,7 @@ export const paginationFunc = () => {
         productsServer.getProduct().then((data) => {
             bodyCatalogPage.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
             renderProduct(data.result)
+            paginationBlock.style.display = 'flex'
         })
        }
     }
@@ -29,10 +33,13 @@ export const paginationFunc = () => {
 
         counterPage.textContent = count
         productsServer.curentPage = count
+        paginationBlock.style.display = 'none'
 
         productsServer.getProduct().then((data) => {
             bodyCatalogPage.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
             renderProduct(data.result)
+
+            paginationBlock.style.display = 'flex'
 
             if(data.result.length < 45){
                 count = 0

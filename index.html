@@ -13,13 +13,26 @@
             <div class="wrapper_block_cont">
                 <aside class="fillter_panel">
                     <div class="wrapper_cont_fillter">
-                            <select id="brand_filter">
-                                <option value="test">dfsadfsdf</option>
-                                <option value="test">1</option>
-                                <option value="test">1</option>
-                                <option value="test">1</option>
-                                <option value="test">1</option>
-                            </select>
+                            <div class="filter_brand_block">
+                                <p class="item_title">фильтровать по бренду</p>
+                                <select id="select_brand">
+                                    <option selected value="1">выберите бренд</option>
+                                    <option  value="1">хзхз</option>
+                                </select>
+                            </div>
+
+                            <div class="filter_price_block">
+                                <p class="item_title">Укажите стоимость</p>
+                                <div class="inputs_price">
+                                    <input class="min_price" type="number" placeholder="0">
+                                    <input class="max_price" type="number" placeholder="1000000">
+                                </div>
+                            </div>
+
+                            <div class="filter_name_block">
+                                <p class="item_title">Найти по названию</p>
+                                <input class="product_name_input" type="text">
+                            </div>
 
                         <!-- фильтрация по бренду -->
                         <!-- фильтрация по цене -->

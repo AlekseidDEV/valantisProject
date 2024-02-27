@@ -18,7 +18,22 @@
 
 .wrapper_block_cont{
     display: flex;
+    gap: 30px;
 }
+
+.fillter_panel{
+    width: 250px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   
+    padding: 20px 30px;
+    max-height: 270px;
+    border-radius: 7px;
+}
+
+#select_brand{
+    width: 100%;
+}
+
 
 .container{
     max-width: 1400px;
@@ -37,10 +52,10 @@
 }
 
 .pagination_catalog{
-    display: flex;
-    width: 1200px;
+    display: none;
     justify-content: center;
-    flex: 0 0 100%;
+    align-items: center;
+    gap: 10px;
     margin-top: 40px;
 }
 
@@ -49,6 +64,7 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+    flex-shrink: 1;
 }
 
 .img_card_product{
@@ -95,6 +111,31 @@
     font-weight: 400;
     font-size: 12px;
     margin-bottom: 10px;
+}
+
+.loading{
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.item_title{
+    font-family: "Roboto";
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.filter_name_block,
+.filter_price_block{
+    margin-top: 30px;
+}
+
+.inputs_price{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .next_page,
