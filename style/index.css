@@ -26,7 +26,7 @@
     flex-shrink: 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   
     padding: 20px 30px;
-    max-height: 270px;
+    max-height: 290px;
     border-radius: 7px;
 }
 
@@ -51,6 +51,7 @@
     align-items: center;
 }
 
+.pagination_catalog_fill,
 .pagination_catalog{
     display: none;
     justify-content: center;
@@ -113,6 +114,18 @@
     margin-bottom: 10px;
 }
 
+button{
+    margin-top: 20px;
+    border: none;
+    background: rgb(165, 250, 165);
+    height: 30px;
+    font-family: "Roboto";
+    font-weight: 500;
+    max-width: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
 .loading{
     font-family: "Roboto";
     font-weight: 500;
@@ -138,6 +151,8 @@
     gap: 10px;
 }
 
+.next_page_fill,
+.prev_page_fill,
 .next_page,
 .prev_page{
     text-decoration: none;
@@ -153,6 +168,7 @@
     padding: 0px 20px;
 }
 
+.pagination_number_fill,
 .pagination_number{
     font-family: "Roboto";
     font-weight: 500;

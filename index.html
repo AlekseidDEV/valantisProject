@@ -12,32 +12,28 @@
         <div class="container">
             <div class="wrapper_block_cont">
                 <aside class="fillter_panel">
-                    <div class="wrapper_cont_fillter">
+                    <form class="form_filter">
                             <div class="filter_brand_block">
                                 <p class="item_title">фильтровать по бренду</p>
-                                <select id="select_brand">
-                                    <option selected value="1">выберите бренд</option>
-                                    <option  value="1">хзхз</option>
-                                </select>
+                                <div class="inputs_price">
+                                    <input class="brand_input" type="text" placeholder="Brand">
+                                </div>
                             </div>
 
                             <div class="filter_price_block">
-                                <p class="item_title">Укажите стоимость</p>
+                                <p class="item_title">Фильтр по стоимость</p>
                                 <div class="inputs_price">
-                                    <input class="min_price" type="number" placeholder="0">
-                                    <input class="max_price" type="number" placeholder="1000000">
+                                    <input class="price_input" type="number" placeholder="0">
                                 </div>
                             </div>
 
                             <div class="filter_name_block">
-                                <p class="item_title">Найти по названию</p>
-                                <input class="product_name_input" type="text">
+                                <p class="item_title">Фильтр по названию</p>
+                                <input class="product_name_input" type="text" placeholder="Золотые Серьги">
                             </div>
 
-                        <!-- фильтрация по бренду -->
-                        <!-- фильтрация по цене -->
-                        <!-- фильтрация по названию -->
-                    </div>
+                            <button type="reset">очистить фильтр</button>
+                    </form>
                 </aside>
 
                 <div class="page_catalog">
@@ -53,6 +49,14 @@
                             1
                         </span>
                         <a href="#" class="next_page">Следующая страница</a>
+                    </div>
+
+                    <div class="pagination_catalog_fill">
+                        <a href="#" class="prev_page_fill">Предыдущая страница</a>
+                        <span class="pagination_number_fill">
+                            1
+                        </span>
+                        <a href="#" class="next_page_fill">Следующая страница</a>
                     </div>
                 </div>
             </div>

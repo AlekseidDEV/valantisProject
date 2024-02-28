@@ -2,15 +2,18 @@ import CryptoJS from "crypto-js"
 import { caclOffset } from "./calcoffset"
 
 export class ProductsServer {
+    bodyCatalog = document.querySelector('.page_block')
+
     _password = 'Valantis'
     _timeStamp = new Date().toISOString().slice(0, 10).split('-').join('')
     _data = `${this._password}_${this._timeStamp}`
     _authotizedString = CryptoJS.MD5(this._data).toString()
     limit = 50
     curentPage = 1
-    bodyCatalog = document.querySelector('.page_block')
+    counterRequest = 0
 
     getProduct = async () => {
+        this.counterRequest = 0
         this.bodyCatalog.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
 
         try {
@@ -50,8 +53,171 @@ export class ProductsServer {
     
             return productData
         } catch (error) {
-            console.log(error.message)
-            return this.getProduct()
+            this.counterRequest++
+
+            if( this.counterRequest <= 100){
+                console.log(error.message)
+                return this.getProduct()
+            } else if(this.counterRequest > 100){
+                alert('Количество попыток запросов к api закончилось, нажмите "ок", что бы перезагрузить странницу')
+                location.reload()
+            }
+        }
+    }
+
+    filterProductBrand = async (paramVal) => {
+        this.counterRequest = 0
+        this.bodyCatalog.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
+
+        try {
+            const responseId = await fetch('http://api.valantis.store:40000/', {
+            method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Auth": this._authotizedString,
+                },
+                body: JSON.stringify({
+                    "action": "filter",
+                    "params": {
+                        'brand' : paramVal,
+                    }
+                })
+        })
+
+        const idProd = await responseId.json()
+        const productIds = idProd.result
+
+        const responceProd = await fetch('http://api.valantis.store:40000/', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Auth": this._authotizedString,
+                },
+                body: JSON.stringify({
+                    "action": "get_items",
+                    "params": {
+                        "ids": productIds
+                    }
+                })
+            })
+
+            const productData = await responceProd.json()
+    
+            return productData
+        } catch (error) {
+            this.counterRequest++
+
+            if( this.counterRequest <= 100){
+                console.log(error.message)
+                return this.getProduct()
+            } else if(this.counterRequest > 100){
+                alert('Количество попыток запросов к api закончилось, нажмите "ок", что бы перезагрузить странницу')
+                location.reload()
+            }
+        }
+    }
+
+    filterProductPrice = async (paramVal) => {
+        this.counterRequest = 0
+        this.bodyCatalog.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
+        
+        try {
+            const responseId = await fetch('http://api.valantis.store:40000/', {
+            method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Auth": this._authotizedString,
+                },
+                body: JSON.stringify({
+                    "action": "filter",
+                    "params": {
+                        'price' : paramVal,
+                    }
+                })
+        })
+
+        const idProd = await responseId.json()
+        const productIds = idProd.result
+
+        const responceProd = await fetch('http://api.valantis.store:40000/', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Auth": this._authotizedString,
+                },
+                body: JSON.stringify({
+                    "action": "get_items",
+                    "params": {
+                        "ids": productIds
+                    }
+                })
+            })
+
+            const productData = await responceProd.json()
+    
+            return productData
+        } catch (error) {
+            this.counterRequest++
+
+            if( this.counterRequest <= 100){
+                console.log(error.message)
+                return this.getProduct()
+            } else if(this.counterRequest > 100){
+                alert('Количество попыток запросов к api закончилось, нажмите "ок", что бы перезагрузить странницу')
+                location.reload()
+            }
+        }
+    }
+
+    filterProductName = async (paramVal) => {
+        this.counterRequest = 0
+        this.bodyCatalog.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
+        
+        try {
+            const responseId = await fetch('http://api.valantis.store:40000/', {
+            method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Auth": this._authotizedString,
+                },
+                body: JSON.stringify({
+                    "action": "filter",
+                    "params": {
+                        'product' : paramVal,
+                    }
+                })
+        })
+
+        const idProd = await responseId.json()
+        const productIds = idProd.result
+
+        const responceProd = await fetch('http://api.valantis.store:40000/', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Auth": this._authotizedString,
+                },
+                body: JSON.stringify({
+                    "action": "get_items",
+                    "params": {
+                        "ids": productIds
+                    }
+                })
+            })
+
+            const productData = await responceProd.json()
+    
+            return productData
+        } catch (error) {
+            this.counterRequest++
+
+            if( this.counterRequest <= 100){
+                console.log(error.message)
+                return this.getProduct()
+            } else if(this.counterRequest > 100){
+                alert('Количество попыток запросов к api закончилось, нажмите "ок", что бы перезагрузить странницу')
+                location.reload()
+            }
         }
     }
 }
