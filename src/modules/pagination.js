@@ -1,7 +1,6 @@
 import {renderProduct} from "./renderproduct"
 
 export const paginationFunc = () => {
-    const bodyCatalogPage = document.querySelector('.page_block')
     const paginationBlock = document.querySelector('.pagination_catalog')
     const counterPage = document.querySelector('.pagination_number')
     const paginBlock = document.querySelector('.pagination_catalog_fill')
@@ -25,7 +24,6 @@ export const paginationFunc = () => {
             productsServer.curentPage = count
 
             productsServer.getProduct().then((data) => {
-                bodyCatalogPage.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
                 renderProduct(data.result)
                 paginationBlock.style.display = 'flex'
             })
@@ -40,7 +38,6 @@ export const paginationFunc = () => {
         paginationBlock.style.display = 'none'
 
         productsServer.getProduct().then((data) => {
-            bodyCatalogPage.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
             renderProduct(data.result)
 
             paginationBlock.style.display = 'flex'

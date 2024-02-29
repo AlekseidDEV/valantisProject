@@ -4,7 +4,6 @@ import { paginationFunc } from "./modules/pagination";
 import { renderProduct } from "./modules/renderproduct";
 import { ProductsServer } from "./modules/requestserver";
 
-const bodyCatalogPage = document.querySelector('.page_block')
 const paginationBlock = document.querySelector('.pagination_catalog')
 
 window.productsServer = new ProductsServer
