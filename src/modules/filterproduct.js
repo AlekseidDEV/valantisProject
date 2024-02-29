@@ -7,6 +7,7 @@ export const filterProduct = () => {
     const bodyCatalogPage = document.querySelector('.page_block')
     const pagination = document.querySelector('.pagination_catalog')
     const paginationFilter = document.querySelector('.pagination_catalog_fill')
+    const btnRes = filterAside.querySelector('#button')
 
     const filterBrand = (targetValue) => {
         pagination.style.display = 'none'
@@ -69,6 +70,8 @@ export const filterProduct = () => {
     }
 
     filterAside.addEventListener('change', (e) => {
+        e.preventDefault()
+        
         if(e.target.className  === "brand_input"){
             filterBrand(e.target.value)
         } else if(e.target.className === 'price_input'){
@@ -78,11 +81,11 @@ export const filterProduct = () => {
         }
     })
 
-    filterAside.addEventListener('click', (e) => {
+    btnRes.addEventListener('click', (e) => {
         e.preventDefault()
-        
-        if(e.target.localName === "button"){
-            filterRes(filterAside)
+
+        if(e.target.id === "button"){
+            filterRes()
         }
     })
 }

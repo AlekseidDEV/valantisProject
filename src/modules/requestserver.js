@@ -13,11 +13,11 @@ export class ProductsServer {
     counterRequest = 0
 
     getProduct = async () => {
-        this.counterRequest = 0
+        
         this.bodyCatalog.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
 
         try {
-            const responseId = await fetch('http://api.valantis.store:40000/', {
+            const responseId = await fetch('https://api.valantis.store:41000/', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -35,7 +35,7 @@ export class ProductsServer {
             const idProd = await responseId.json()
             const productIds = idProd.result
     
-            const responceProd = await fetch('http://api.valantis.store:40000/', {
+            const responceProd = await fetch('https://api.valantis.store:41000/', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export class ProductsServer {
             const productData = await responceProd.json()
     
             return productData
-            
+
         } catch (error) {
             this.counterRequest++
 
@@ -60,18 +60,17 @@ export class ProductsServer {
                 console.log(error.message)
                 return this.getProduct()
             } else if(this.counterRequest > 100){
-                alert('Количество попыток запросов к api закончилось, нажмите "ок", что бы перезагрузить странницу')
                 location.reload()
             }
         }
     }
 
     filterProductBrand = async (paramVal) => {
-        this.counterRequest = 0
+        
         this.bodyCatalog.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
 
         try {
-            const responseId = await fetch('http://api.valantis.store:40000/', {
+            const responseId = await fetch('https://api.valantis.store:41000/', {
             method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -88,7 +87,7 @@ export class ProductsServer {
         const idProd = await responseId.json()
         const productIds = idProd.result
 
-        const responceProd = await fetch('http://api.valantis.store:40000/', {
+        const responceProd = await fetch('https://api.valantis.store:41000/', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -112,18 +111,17 @@ export class ProductsServer {
                 console.log(error.message)
                 return this.getProduct()
             } else if(this.counterRequest > 100){
-                alert('Количество попыток запросов к api закончилось, нажмите "ок", что бы перезагрузить странницу')
                 location.reload()
             }
         }
     }
 
     filterProductPrice = async (paramVal) => {
-        this.counterRequest = 0
+        
         this.bodyCatalog.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
         
         try {
-            const responseId = await fetch('http://api.valantis.store:40000/', {
+            const responseId = await fetch('https://api.valantis.store:41000/', {
             method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -140,7 +138,7 @@ export class ProductsServer {
         const idProd = await responseId.json()
         const productIds = idProd.result
 
-        const responceProd = await fetch('http://api.valantis.store:40000/', {
+        const responceProd = await fetch('https://api.valantis.store:41000/', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -164,18 +162,17 @@ export class ProductsServer {
                 console.log(error.message)
                 return this.getProduct()
             } else if(this.counterRequest > 100){
-                alert('Количество попыток запросов к api закончилось, нажмите "ок", что бы перезагрузить странницу')
                 location.reload()
             }
         }
     }
 
     filterProductName = async (paramVal) => {
-        this.counterRequest = 0
+        
         this.bodyCatalog.innerHTML = `<p class="loading">Загружаем товары, секунду...</p>`
         
         try {
-            const responseId = await fetch('http://api.valantis.store:40000/', {
+            const responseId = await fetch('https://api.valantis.store:41000/', {
             method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -192,7 +189,7 @@ export class ProductsServer {
         const idProd = await responseId.json()
         const productIds = idProd.result
 
-        const responceProd = await fetch('http://api.valantis.store:40000/', {
+        const responceProd = await fetch('https://api.valantis.store:41000/', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
@@ -216,7 +213,6 @@ export class ProductsServer {
                 console.log(error.message)
                 return this.getProduct()
             } else if(this.counterRequest > 100){
-                alert('Количество попыток запросов к api закончилось, нажмите "ок", что бы перезагрузить странницу')
                 location.reload()
             }
         }
