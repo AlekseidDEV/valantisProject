@@ -6,6 +6,7 @@
 
 ### Папка src с модулями
 
+```
 |-- src/
 | |-- modules
 | | |--calcoffset.js
@@ -18,3 +19,4 @@
 | | |-- resetfilter.js
 | | |-- validinput.js
 |--index.js
+```
