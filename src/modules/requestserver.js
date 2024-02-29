@@ -60,6 +60,7 @@ export class ProductsServer {
                 console.log(error.message)
                 return this.getProduct()
             } else if(this.counterRequest > 100){
+                alert('возникла ошибка, нажмите ок, для перезагрузки')
                 location.reload()
             }
         }
@@ -109,8 +110,9 @@ export class ProductsServer {
 
             if( this.counterRequest <= 100){
                 console.log(error.message)
-                return this.getProduct()
+                return this.filterProductBrand()
             } else if(this.counterRequest > 100){
+                alert('возникла ошибка, нажмите ок, для перезагрузки')
                 location.reload()
             }
         }
@@ -160,8 +162,9 @@ export class ProductsServer {
 
             if( this.counterRequest <= 100){
                 console.log(error.message)
-                return this.getProduct()
+                return this.filterProductPrice()
             } else if(this.counterRequest > 100){
+                alert('возникла ошибка, нажмите ок, для перезагрузки')
                 location.reload()
             }
         }
@@ -211,8 +214,9 @@ export class ProductsServer {
 
             if( this.counterRequest <= 100){
                 console.log(error.message)
-                return this.getProduct()
+                return this.filterProductName()
             } else if(this.counterRequest > 100){
+                alert('возникла ошибка, нажмите ок, для перезагрузки')
                 location.reload()
             }
         }

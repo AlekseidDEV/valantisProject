@@ -72,11 +72,11 @@ export const filterProduct = () => {
     filterAside.addEventListener('change', (e) => {
         e.preventDefault()
         
-        if(e.target.className  === "brand_input"){
+        if(e.target.className  === "brand_input" && e.target.value !== ''){
             filterBrand(e.target.value)
-        } else if(e.target.className === 'price_input'){
+        } else if(e.target.className === 'price_input' && e.target.value !== ''){
             filterPrice(e.target.value)
-        } else if(e.target.className === 'product_name_input'){
+        } else if(e.target.className === 'product_name_input' && e.target.value !== ''){
             filterName(e.target.value)
         }
     })
