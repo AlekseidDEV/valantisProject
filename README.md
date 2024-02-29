@@ -6,15 +6,15 @@
 
 ### Папка src с модулями
 
-|--src
-|---modules
-|----calcoffset.js
-|----countwander.js
-|----delduplicate.js
-|----filterproduct.js
-|----pagination.js
-|----renderproduct.js
-|----requestserver.js
-|----resetfilter.js
-|----validinput.js
+|-- src/
+| |-- modules
+| | |--calcoffset.js
+| | |-- countwander.js
+| | |-- delduplicate.js
+| | |-- filterproduct.js
+| | |-- pagination.js
+| | |-- renderproduct.js
+| | |-- requestserver.js
+| | |-- resetfilter.js
+| | |-- validinput.js
 |--index.js
