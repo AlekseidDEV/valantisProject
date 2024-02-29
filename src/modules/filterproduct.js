@@ -21,8 +21,8 @@ export const filterProduct = () => {
                 } else if(data.result.length === 0){
                     bodyCatalogPage.innerHTML = `<p class="loading">Товаров не найдено</p>`
                 } else{
-                    paginationFilter.style.display = 'flex'
                     paginator.countWander(data.result, 50)
+                    paginationFilter.style.display = 'flex'
                 }
             })
         } else if(!validInput(trimValue) && trimValue !== ''){
@@ -43,8 +43,8 @@ export const filterProduct = () => {
                 } else if(data.result.length === 0){
                     bodyCatalogPage.innerHTML = `<p class="loading">Товаров не найдено</p>`
                 } else{
-                    paginationFilter.style.display = 'flex'
                     paginator.countWander(data.result, 50)
+                    paginationFilter.style.display = 'flex'
                 }
             })
         } else if(!validInput(trimValue) && trimValue !== ''){
@@ -62,8 +62,8 @@ export const filterProduct = () => {
             } else if(data.result.length === 0){
                 bodyCatalogPage.innerHTML = `<p class="loading">Товаров не найдено</p>`
             } else{
-                paginationFilter.style.display = 'flex'
                 paginator.countWander(data.result, 50)
+                paginationFilter.style.display = 'flex'
             }
         })
     }
@@ -79,6 +79,8 @@ export const filterProduct = () => {
     })
 
     filterAside.addEventListener('click', (e) => {
+        e.preventDefault()
+        
         if(e.target.localName === "button"){
             filterRes(filterAside)
         }

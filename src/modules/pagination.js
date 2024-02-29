@@ -56,6 +56,7 @@ export const paginationFunc = () => {
             countFilter = paginator.arrPage.length
         } else{
             paginator.nextPage(countFilter - 1)
+            document.documentElement.scrollTop = 0
         }
 
         counterPageFilter.textContent = countFilter
@@ -70,6 +71,7 @@ export const paginationFunc = () => {
             counterPageFilter.textContent = countFilter
 
             paginator.prevPage(countFilter - 1)
+            document.documentElement.scrollTop = 0
         }
     }
 

@@ -52,6 +52,7 @@ export class ProductsServer {
             const productData = await responceProd.json()
     
             return productData
+            
         } catch (error) {
             this.counterRequest++
 
